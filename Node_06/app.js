@@ -3,11 +3,13 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+var mongoose = require('mongoose');
+
+mongoose.connect("mongodb://localhost/mydb");
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var bookRouter = require('./routes/bookRouter');
-var crudRouter = require('./routes/crudRouter');
 
 var app = express();
 
@@ -23,20 +25,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
-
-// localhost:3000/book/list
-// localhost:3000/book/insert
-// localhost:3000/book/update
-// localhost:3000/book/delete
 app.use('/book', bookRouter);
-
-// crud를 수행하고 싶은데 어떤 데이터를 '어떻게' 할 것인가에 관점을 둔 RESTfull에서 권장하는 path 구현방식
-// Resource 지향 RESTfull이라고 한다
-// localhost:3000/crud/:id/list
-// /crud/book/list
-// /crud/member/list
-// /crud/address/list
-app.use('/crud', crudRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

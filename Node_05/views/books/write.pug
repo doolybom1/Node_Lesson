@@ -1,0 +1,50 @@
+extends ../index
+
+block body
+
+    script.
+        $(function(){
+                    $("#btn_insert").click(function(){
+                        // alert("추가버튼 클릭")
+                        let name = $("#bTitle").val()
+                        $.get("/book/name",{name:name},function(result){
+                                if(result) {
+                                    let retName = result.BName
+                                    alert(retName + "\n" + name)
+                                    if(name == retName) {
+                                        alert("이미 등록된 도서 입니다")
+                                        return false
+                                    }
+                                }
+                                $("form").submit()
+                        })
+                    })
+                    $("#btn_delete").click(function(){
+                        if(confirm("삭제할까요")) {
+                            // let id = $(this).data('id')
+                            // router에서 보낸 json 데이터를
+                            // js 코드에 포함할때는 '#{book._id}'
+                            document.location.replace("/book/delete/#{book._id}" )
+                        }
+                    })
+                    $("#btn_list").click(function(){
+                        document.location.replace("/book")
+                    })
+                })
+    
+    
+    form(method='POST')
+        - var inputClasses =['w3-input','w3-border']
+        .w3-container
+            input#bTitle(name='bTitle', type='text',class=inputClasses, placeholder='책이름')
+        .w3-container
+            input#bWriter(name='bWriter', type='text',class=inputClasses, placeholder='저자')
+        .w3-container
+            input#bComp(name='bComp', type='text',class=inputClasses, placeholder='출판사')
+        .w3-container
+            input#bPrice(name='bPrice', type='text',class=inputClasses, placeholder='가격')
+        
+        - var btnCalsses = ['w3-button','w3-round','w3-margin-top','w3-blue','w3-right','w3-margin-right']
+        button#btn_insert(type='button', class=btnCalsses)= btnText
+        button#btn_delete(type='button', class=btnCalsses, data-id=book._id).w3-red 삭제
+        button#btn_list(type='button', class=btnCalsses).w3-green 목록으로
