@@ -1,6 +1,7 @@
 extends ../layout
 
 block content
+    script(src="/javascripts/gjbus.js")
     section.container-fluid
         table.w3-table-all
             tr
@@ -11,14 +12,18 @@ block content
                 th 경도
                 th 위도
             each station,index in stations
-                tr
+                tr.bus_tr(data-id=station.BUSSTOP_ID)
                     td= station.STATION_NUM
                     td= station.BUSSTOP_ID
                     td= station.BUSSTOP_NAME
                     td= station.NEXT_BUSSTOP
                     td= station.LONGITUDE
                     td= station.LATITUDE
-        include ../page_list
+    p
+    hr
+    p
+    section#bustime.container-fluid
+
 
 
     

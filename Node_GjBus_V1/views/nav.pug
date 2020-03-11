@@ -1,9 +1,9 @@
 block navi
     ul.main-menu
         li
-            a(href="#") 홈
+            a(href="/") 홈
         li
-            form
+            form(action="/gjbus/searchStation")
                 input(name="station", placeholder="정류장 정보를 입력한 후 Enter")
         li
             a(href="/gjbus/viewStation") VIEW STATION
