@@ -1,0 +1,15 @@
+extends ../layout
+
+block content
+    each movie, index in movies
+        div#card_form.w3-card-2.w3-margin.w3-padding
+            div#card_content.w3-container.w3-center
+                p.w3-large.w3-round-xxlarge.w3-blue.w3-padding.w3-border
+                    a(href=movie.link) !{movie.title}
+                p
+                    img#im.w3-round-large(src=movie.image)
+                p#sub.w3-opacity= movie.subtitle
+                p.w3-wide= movie.pubDate
+                p= movie.director
+                p= movie.actor
+                p= movie.useRating

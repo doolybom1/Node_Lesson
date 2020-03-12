@@ -1,0 +1,28 @@
+body {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: #00B7FF;
+  text-decoration: none;
+}
+
+#card_form{
+  display: inline-block;
+  width: 400px;
+  height: auto; 
+  
+}
+#card_content{
+  margin:2rem; 
+}
+#sub{
+  font-weight: bold;
+}
+#im{
+  width: 150px;
+}
+
