@@ -6,7 +6,7 @@ var gjStationVO = mongoose.Schema({
     NAME_E : String,	//정류소 명(영문)	60	1	Dongwonchon	
     LONGITUDE : String,	//위도	13	1	126.82839444	
     LATITUDE : String, //경도
-    ARS_ID : String,    // ARS검색ID
+    ARS_ID : String,    // ARS검색ID    
     NEXT_BUSSTOP : String //다음 버스 승강장
 })
 

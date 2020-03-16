@@ -1,0 +1,15 @@
+extends ../layout
+
+block content
+    each book, index in books
+        div#card_form.w3-card-2.w3-margin.w3-padding
+            div#card_content.w3-container.w3-center
+                p.w3-large.w3-round-xxlarge.w3-blue.w3-padding.w3-border
+                p !{book.title}
+                p
+                    img(src=book.image)
+                p
+                p= book.author
+                p= book.price
+                p= book.description
+                
