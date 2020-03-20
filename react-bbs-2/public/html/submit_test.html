@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <script src="https://code.jquery.com/jquery-latest.min.js"></script>
+    <script>
+        $(function(){
+          $('#a1').click(function(){
+             alert('나는 click me 입니다');
+
+             return false;
+          })  
+          
+          $('#a2').click(function(){
+             alert('나는 noRefresh 입니다');
+          })  
+
+          $('#form1').submit(function(){
+              alert('나는 폼이 전송될때 실행되는 이벤트 입니다')
+              return false;
+          })
+
+          $('button').click(function(){
+             alert('나는 버튼 클릭 이벤트 입니다');
+             $('form').submit()
+          })  
+
+          
+        })
+
+        function trclick(){
+            alert('tr click');
+        };
+
+    </script>
+</head>
+<body>
+    <form id="form1">
+        <input placeholder="문자열 입력" name="string">
+        <button>전송</button>
+    </form>    
+    <a href="https://naver.com" id="a1">click me</a>
+    
+    <!--
+        이러한 코드를 작성하는 이유는 기본 기능을 사용하지 않고 별도로 js에서 클릭 기능을 임의로 만들기 위한 방법
+    -->
+    <a href="javascript:void(0)" id="a2">no refresh</a>
+
+
+    <table border="1">
+        <tr onclick="trclick()">
+            <td>111111111</td>
+            <td>222222222</td>
+            <td>333333333</td>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>2</td>
+            <td>3</td>
+        </tr>
+    </table>
+        
+</body>
+</html>
